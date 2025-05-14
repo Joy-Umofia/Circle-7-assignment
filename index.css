@@ -1,0 +1,50 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logo {
+    width: 100px;
+    height: auto;
+    justify-self: center;
+}
+.all-content {
+    background-color: #FCF5E5;
+    margin:0;
+    padding: 1.8rem 4rem 0 4rem;
+}
+.first-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.profile-text{
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+    justify-content: space-between;
+}
+.heading-text {
+    font-family: 'poppins';
+    font-weight: 500;
+    font-size: 32px;
+    color: #212121;
+    
+}
+.profile-parag {
+    font-family: 'poppins';
+    font-size: 16px;
+    color: #212121B2;
+
+}
+.edit-icon {
+    color: #212121;
+    font-family: 'poppins';
+}
