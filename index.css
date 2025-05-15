@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 header {
   background-color: white;
   width: 100%;
@@ -16,28 +19,33 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #fcf5e5;
+  font-size: 16px;
 }
+
 main {
   padding: 10px 80px;
 }
+
 .first-section {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-block: 20px;
   width: 100%;
   height: 210px;
 }
-
+/* 
 .left-section {
   display: flex;
- 
   gap: 1rem;
-}
+} */
+
 .profile-img {
   width: 192px;
   height: 192px;
 }
+
 .profile-text {
   display: flex;
   flex-direction: column;
@@ -45,7 +53,8 @@ main {
   height: 156px;
   gap: 12px;
 }
-.post { 
+
+.post {
   width: 157px;
   height: 52px;
   border-radius: 8px;
@@ -55,22 +64,23 @@ main {
   align-self: flex-end;
   transition: all 0.2s ease;
 }
+
 .post:hover {
   background-color: #212121;
   opacity: 80%;
 }
+
 .heading-text {
-  font-family: "poppins";
+  font-family: 'poppins';
   font-weight: 500;
-  font-size: 32px;
+  font-size: 2em;
   color: #212121;
   height: 96px;
   line-height: 100%;
 }
 
 .profile-parag {
-  font-family: "poppins";
-  font-size: 16px;
+  font-family: 'poppins';
   color: #212121b2;
   width: 420px;
   height: 48px;
@@ -80,12 +90,13 @@ main {
 .edit-icon {
   color: #212121;
   opacity: 70%;
-  font-family: "poppins";
+  font-family: 'poppins';
   border: none;
   text-align: left;
   background-color: #fcf5e5;
   transition: all 0.2s ease;
 }
+
 .edit-icon:hover {
   color: #212121;
   opacity: 100%;
@@ -96,13 +107,11 @@ main {
   grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   width: 100%;
-  height: 970px;
   padding-block: 20px;
-  font-family: "poppins";
+  font-family: 'poppins';
 }
 
 .gallery-item {
-  position: relative;
   width: 100%;
   height: 445px;
   border-radius: 8px;
@@ -117,14 +126,14 @@ main {
 
 .gallery-caption {
   padding: 10px 0px;
-  font-size: 20px;
+  font-size: 1.2em;
   font-weight: 500;
   line-height: 120%;
   color: #212121;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "poppins";
+  font-family: 'poppins';
 }
 
 .heart-icon {
@@ -141,6 +150,12 @@ main {
   stroke: black;
 }
 
+footer {
+  padding: 30px;
+  font-size: 1rem;
+  color: #212121;
+  text-align: center;
+}
 
 @media (min-width: 768px) {
   .gallery {
@@ -154,15 +169,77 @@ main {
   }
 }
 
-footer {
-  padding: 30px;
-  font-size: 1rem;
-  color: #212121;
-  text-align: center;
-}
-
 @media screen and (max-width: 390px) {
   footer {
     max-width: 95%;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  body {
+    font-size: 12px;
+    position: absolute;
+    overflow-x: hidden;
+  }
+
+  main {
+    padding: 10px 20px 0 20px;
+    margin: 0 auto;
+  }
+
+  .first-section {
+    display: block;
+    text-align: center;
+    position: relative;
+  }
+
+  .left-section {
+    width: 100%;
+
+    .profile-img {
+      display: block;
+      margin: auto;
+      padding: 0;
+    }
+  }
+
+  .profile-text {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    top: 20px;
+    .profile-parag {
+      width: 100%;
+    }
+    .edit-icon {
+      margin: 5px auto;
+    }
+  }
+
+  .post {
+    position: relative;
+    top: 200px;
+    width: 100%;
+  }
+
+  .post-hr {
+    position: relative;
+    top: 220px;
+  }
+
+  .gallery {
+    gap: 25px;
+    position: relative;
+    top: 230px;
+  }
+
+  footer {
+    position: relative;
+    top: 250px;
+  }
+
+  .line {
+    position: relative;
+    top: 230px;
   }
 }
