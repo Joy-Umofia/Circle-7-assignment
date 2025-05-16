@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
 
 * {
   margin: 0;
@@ -28,12 +28,20 @@ main {
 
 .first-section {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
   padding-block: 20px;
   width: 100%;
-  height: 210px;
+  height: auto;
+}
+
+.profile-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 635px;
+  gap: 20px;
 }
 /* 
 .left-section {
@@ -71,7 +79,7 @@ main {
 }
 
 .heading-text {
-  font-family: 'poppins';
+  font-family: "poppins";
   font-weight: 500;
   font-size: 2em;
   color: #212121;
@@ -80,7 +88,7 @@ main {
 }
 
 .profile-parag {
-  font-family: 'poppins';
+  font-family: "poppins";
   color: #212121b2;
   width: 420px;
   height: 48px;
@@ -90,7 +98,7 @@ main {
 .edit-icon {
   color: #212121;
   opacity: 70%;
-  font-family: 'poppins';
+  font-family: "poppins";
   border: none;
   text-align: left;
   background-color: #fcf5e5;
@@ -108,7 +116,7 @@ main {
   gap: 20px;
   width: 100%;
   padding-block: 20px;
-  font-family: 'poppins';
+  font-family: "poppins";
 }
 
 .gallery-item {
@@ -133,7 +141,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'poppins';
+  font-family: "poppins";
 }
 
 .heart-icon {
@@ -175,9 +183,9 @@ footer {
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (min-width: 391px) and (max-width: 767px) {
   body {
-    font-size: 12px;
+    font-size: 15px;
     position: absolute;
     overflow-x: hidden;
   }
@@ -188,9 +196,17 @@ footer {
   }
 
   .first-section {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    position: relative;
+    /* display: block;
+    text-align: center;
+    position: relative; */
+  }
+
+  .profile-section {
+    width: 100%;
   }
 
   .left-section {
@@ -210,36 +226,123 @@ footer {
     top: 20px;
     .profile-parag {
       width: 100%;
+      font-size: 16px;
+      padding: 0 5px;
+      margin-bottom: 12px;
     }
     .edit-icon {
       margin: 5px auto;
+      font-size: 16px;
     }
   }
 
   .post {
     position: relative;
-    top: 200px;
+    top: 50px;
     width: 100%;
+    margin: auto;
   }
 
   .post-hr {
     position: relative;
-    top: 220px;
+    top: 60px;
   }
 
   .gallery {
     gap: 25px;
     position: relative;
-    top: 230px;
+    top: 70px;
   }
 
   footer {
     position: relative;
-    top: 250px;
+    top: 120px;
   }
 
   .line {
     position: relative;
-    top: 230px;
+    top: 70px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  body {
+    font-size: 12px;
+    position: absolute;
+    overflow-x: hidden;
+  }
+
+  main {
+    padding: 10px 20px 0 20px;
+    margin: 0 auto;
+  }
+
+  .first-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* display: block;
+    text-align: center;
+    position: relative; */
+  }
+
+  .profile-section {
+    width: 100%;
+  }
+
+  .left-section {
+    width: 100%;
+
+    .profile-img {
+      display: block;
+      margin: auto;
+      padding: 0;
+    }
+  }
+
+  .profile-text {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    top: 20px;
+    .profile-parag {
+      width: 100%;
+      font-size: 16px;
+      padding: 0 5px;
+      margin-bottom: 10px;
+    }
+    .edit-icon {
+      margin: 5px auto;
+      font-size: 16px;
+    }
+  }
+
+  .post {
+    position: relative;
+    top: 50px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .post-hr {
+    position: relative;
+    top: 60px;
+  }
+
+  .gallery {
+    gap: 25px;
+    position: relative;
+    top: 70px;
+  }
+
+  footer {
+    position: relative;
+    top: 120px;
+  }
+
+  .line {
+    position: relative;
+    top: 70px;
   }
 }
