@@ -21,30 +21,58 @@
   <main>
     <section class="first-section">
       <div class="profile-section">
-      <div class="left-section">
-        <!-- please add the profile image here -->
-        <img src="./images/Avatar.jpg" alt="profile" class="profile-img" />
-      </div>
+        <div class="left-section">
+          <!-- please add the profile image here -->
+          <img src="./images/Avatar.jpg" alt="profile" class="profile-img" />
+        </div>
 
-      <div class="profile-text">
-        <h3 class="heading-text">
-          Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...
-        </h3>
-        <p class="profile-parag">
-          Known mononymously as Akon (/'e&#618k&#594n/), is a Senegalese-American
-          singer,record producer, and entrepreneur. An influential figure
-          in modern world....
-        </p>
-        <button title="edit" class="edit-icon">
-          <i class="fa-solid fa-pencil"></i> Edit Profile
-        </button>
+        <div class="profile-text">
+          <h3 class="heading-text">
+            Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...
+          </h3>
+          <p class="profile-parag">
+            Known mononymously as Akon (/'e&#618k&#594n/), is a Senegalese-American
+            singer,record producer, and entrepreneur. An influential figure
+            in modern world....
+          </p>
+          <button title="edit" class="edit-icon">
+            <i class="fa-solid fa-pencil"></i> Edit Profile
+          </button>
+        </div>
+      </div>
+      <!-- <div class="post-btn"> -->
+
+      <button class="post"><i class="fa-solid fa-plus"></i> New post</button>
+      <!-- </div> -->
+    </section>
+
+    <!-- Edit profile modal -->
+    <div class="modal" id="editModal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="editForm">
+          <div>
+            <label for="username">Name:</label>
+            <input type="text" id="username" name="username">
+          </div>
+
+          <div>
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="4"></textarea>
+          </div>
+
+          <div>
+            <label for="profileImage">Upload New Image:</label>
+            <input type="file" id="profileImage" accept="image/*">
+          </div>
+
+          <button type="submit">Save Changes</button>
+        </form>
       </div>
     </div>
-    <!-- <div class="post-btn"> -->
 
-    <button class="post"><i class="fa-solid fa-plus"></i> New post</button>
-  <!-- </div> -->
-    </section>
+
     <hr class="post-hr" />
     <section class="gallery">
       <!-- Gallery Item 1 -->
@@ -135,6 +163,9 @@
       <p>2024 © Spots</p>
     </div>
   </footer>
+
+  <!-- linking javascript file -->
+   <script src="./index.js"></script>
 </body>
 
 </html>
