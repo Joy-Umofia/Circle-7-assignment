@@ -3,6 +3,9 @@ const editBtn = document.querySelector(".edit-icon");
 const modal = document.getElementById("editModal");
 const closeBtn = document.getElementById("closeModal");
 
+// exporting from gallery.js
+import { galleryData } from './gallery.js'
+
 //display modal when edit icon is clicked
 editBtn.addEventListener("click", () => {
   modal.style.display = "flex";
@@ -55,3 +58,20 @@ editForm.addEventListener("submit", (e) => {
   // Close the modal
   modal.style.display = "none";
 });
+
+// dynamically displaying each gallery in the browser. the moment the window loads it shows our images
+window.addEventListener("DOMContentLoaded",function(){
+  let gallery=galleryData.map(item=>{
+    // destructured each item
+   const {img,title,icon}=item
+    return`<div class="gallery-item">
+        <img src=${img} alt=${title} class="gallery-image" />
+        <div class="gallery-caption">
+          <span>${title}</span>
+          ${icon}
+        </div>
+      </div> `
+  }).join("")
+  const galContainer= document.querySelector(".gallery")
+  galContainer.innerHTML=gallery
+})
