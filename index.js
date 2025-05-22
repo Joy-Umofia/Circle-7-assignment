@@ -51,6 +51,8 @@ editForm.addEventListener("submit", (e) => {
       profileImg.src = e.target.result;
     };
     reader.readAsDataURL(imageFile);
+
+    imageFile.style.borderRadius = "18px";
   }
 
   // Close the modal
