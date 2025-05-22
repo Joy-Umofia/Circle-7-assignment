@@ -4,7 +4,7 @@ const modal = document.getElementById("editModal");
 const closeBtn = document.getElementById("closeModal");
 
 // exporting from gallery.js
-import { galleryData } from './gallery.js'
+import { galleryData } from "./gallery.js";
 
 //display modal when edit icon is clicked
 editBtn.addEventListener("click", () => {
@@ -58,18 +58,35 @@ editForm.addEventListener("submit", (e) => {
 });
 
 // dynamically displaying each gallery in the browser. the moment the window loads it shows our images
-window.addEventListener("DOMContentLoaded",function(){
-  let gallery=galleryData.map(item=>{
-    // destructured each item
-   const {img,title,icon}=item
-    return`<div class="gallery-item">
+window.addEventListener("DOMContentLoaded", function () {
+  let gallery = galleryData
+    .map((item) => {
+      // destructured each item
+      const { img, title, icon } = item;
+      return `<div class="gallery-item">
         <img src=${img} alt=${title} class="gallery-image" />
         <div class="gallery-caption">
           <span>${title}</span>
           ${icon}
         </div>
-      </div> `
-  }).join("")
-  const galContainer= document.querySelector(".gallery")
-  galContainer.innerHTML=gallery
-})
+      </div> `;
+    })
+    .join("");
+  const galContainer = document.querySelector(".gallery");
+  galContainer.innerHTML = gallery;
+  // making the heart icon clickable and changing its color when clicked
+// selecting the heart icon class
+const heartIcon = document.getElementsByClassName("heart-icon");
+// I'm looping through each heart icon abd adding an event listener to it
+Array.from(heartIcon).forEach((icon) => {
+  icon.addEventListener("click", () => {
+    icon.classList.toggle("active");
+    if (icon.classList.contains("active")) {
+      icon.style.fill = "red";
+    } else {
+      icon.style.fill = "none";
+    }
+  });
+});
+});
+
