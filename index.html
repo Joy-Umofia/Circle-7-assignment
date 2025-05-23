@@ -42,7 +42,7 @@
       </div>
       <!-- <div class="post-btn"> -->
 
-      <button class="post"><i class="fa-solid fa-plus"></i> New post</button>
+      <button class="post" id="new-post-btn"><i class="fa-solid fa-plus"></i> New post</button>
       <!-- </div> -->
     </section>
 
@@ -51,7 +51,7 @@
       <div class="modal-content">
         <span class="close-btn" id="closeModal">&times;</span>
         <h2>Edit Profile</h2>
-        <form id="editForm">
+        <form id="editForm" class="modal-form">
           <div>
             <label for="username">Name:</label>
             <input type="text" id="username" name="username">
@@ -72,6 +72,27 @@
       </div>
     </div>
 
+    <!-- new post modal -->
+
+    <div class="modal" id="new-post-modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-new-post">&times;</span>
+        <h2>New Post</h2>
+        <form id="new-post-form" class="modal-form">
+          <div>
+            <label for="postImage">Upload Image:</label>
+            <input type="file" id="postImage" accept="image/*" required>
+          </div>
+
+          <div>
+            <label for="postCaption">Caption:</label>
+            <textarea id="postCaption" name="postCaption" rows="4" minlength="2" maxlength="50"></textarea>
+          </div>
+
+          <button type="submit" id="submit-new-post-btn">Create Post</button>
+        </form>
+      </div>
+    </div>
 
     <hr class="post-hr" />
     <section class="gallery">
@@ -154,7 +175,7 @@
       </div> -->
     </section>
     <br>
-    <hr class="line"/>
+    <hr class="line" />
   </main>
 
   <!-- footer -->
@@ -165,7 +186,7 @@
   </footer>
 
   <!-- linking javascript file -->
-   <script type="module" src="./index.js"></script>
+  <script type="module" src="./index.js"></script>
 </body>
 
 </html>
