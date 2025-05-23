@@ -197,18 +197,18 @@ footer {
   margin-bottom: 10px;
 }
 
-#editForm {
+.modal-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-#editForm > div > label {
+.modal-form > div > label {
   display: block;
   margin: 3px 0;
 }
 
-#editForm > div > input {
+.modal-form > div > input {
   width: 100%;
   margin-bottom: 8px;
   border-radius: 5px;
@@ -220,7 +220,7 @@ footer {
   background-color: #fff;
 }
 
-#editForm > div > textarea {
+.modal-form > div > textarea {
   width: 100%;
   margin-bottom: 8px;
   max-width: 100%;
@@ -228,7 +228,7 @@ footer {
   border-radius: 5px;
 }
 
-#editForm > button {
+.modal-form > button {
   margin-top: 20px;
   background: #000;
   color: #fff;
@@ -238,7 +238,7 @@ footer {
   border-radius: 8px;
 }
 
-#editForm > button:hover {
+.modal-form > button:hover {
   opacity: 0.9;
 }
 
