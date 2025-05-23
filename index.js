@@ -106,27 +106,61 @@ newPostForm.addEventListener("submit", (e) => {
   if (newPostCaption && newPostImage) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      const newPostHTML = `
-        <div class="gallery-item">
-          <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
+      // const newPostHTML = `
+      //   <div class="gallery-item">
+      //     <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
+      //     <div class="gallery-caption">
+      //       <span>${newPostCaption}</span>
+      //       <svg class="heart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      //       <path
+      //         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+      //       </path>
+      //     </svg>
+      //     </div>
+      //   </div>
+      // `
+      // galleryContainer.innerHTML += newPostHTML
+
+
+
+      const galleryItem = document.createElement('div')
+      galleryItem.classList.add('gallery-item')
+      galleryItem.innerHTML = `
+        <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
           <div class="gallery-caption">
             <span>${newPostCaption}</span>
             <svg class="heart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-            </path>
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
-          </div>
         </div>
+<<<<<<< HEAD
       `;
       galleryContainer.innerHTML += newPostHTML;
     };
+=======
+`
+
+      galleryContainer.appendChild(galleryItem)
+
+      const heartIcon = galleryItem.querySelector('.heart-icon')
+      heartIcon.addEventListener('click', () => {
+        heartIcon.classList.toggle('active')
+        heartIcon.style.fill = heartIcon.classList.contains('active') ? 'red' : 'none'
+        heartIcon.style.stroke = heartIcon.classList.contains('active') ? 'none' : ''
+      })
+    }
+>>>>>>> 7229f7aea671cb0a711a1eb64fe8c424607cf46a
 
     reader.readAsDataURL(newPostImage);
   }
   // Close the modal
+<<<<<<< HEAD
   newPostModal.style.display = "none";
 });
+=======
+  newPostModal.style.display = 'none';
+})
+>>>>>>> 7229f7aea671cb0a711a1eb64fe8c424607cf46a
 
 // Code to close modal when the Escape key is pressed
 
@@ -160,11 +194,19 @@ window.addEventListener("DOMContentLoaded", function () {
   const heartIcon = document.getElementsByClassName("heart-icon");
   // I'm looping through each heart icon abd adding an event listener to it
   Array.from(heartIcon).forEach((icon) => {
+<<<<<<< HEAD
     icon.addEventListener("click", () => {
       icon.classList.toggle("active");
       if (icon.classList.contains("active")) {
         icon.style.fill = "red";
         icon.style.stroke = "none";
+=======
+    icon.addEventListener('click', () => {
+      icon.classList.toggle('active')
+      if (icon.classList.contains('active')) {
+        icon.style.fill = 'red'
+        icon.style.stroke = "none"
+>>>>>>> 7229f7aea671cb0a711a1eb64fe8c424607cf46a
       } else {
         icon.style.fill = "none";
       }
