@@ -106,26 +106,49 @@ newPostForm.addEventListener('submit', (e) => {
   if (newPostCaption && newPostImage) {
     const reader = new FileReader()
     reader.onload = function (e) {
-      const newPostHTML = `
-        <div class="gallery-item">
-          <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
+      // const newPostHTML = `
+      //   <div class="gallery-item">
+      //     <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
+      //     <div class="gallery-caption">
+      //       <span>${newPostCaption}</span>
+      //       <svg class="heart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      //       <path
+      //         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+      //       </path>
+      //     </svg>
+      //     </div>
+      //   </div>
+      // `
+      // galleryContainer.innerHTML += newPostHTML
+
+
+
+      const galleryItem = document.createElement('div')
+      galleryItem.classList.add('gallery-item')
+      galleryItem.innerHTML = `
+        <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
           <div class="gallery-caption">
             <span>${newPostCaption}</span>
             <svg class="heart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-            </path>
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
-          </div>
         </div>
-      `
-      galleryContainer.innerHTML += newPostHTML
+`
+
+      galleryContainer.appendChild(galleryItem)
+
+      const heartIcon = galleryItem.querySelector('.heart-icon')
+      heartIcon.addEventListener('click', () => {
+        heartIcon.classList.toggle('active')
+        heartIcon.style.fill = heartIcon.classList.contains('active') ? 'red' : 'none'
+        heartIcon.style.stroke = heartIcon.classList.contains('active') ? 'none' : ''
+      })
     }
 
     reader.readAsDataURL(newPostImage)
   }
   // Close the modal
-  newPostModal.style.display = 'none'
+  newPostModal.style.display = 'none';
 })
 
 // Code to close modal when the Escape key is pressed
@@ -164,7 +187,7 @@ window.addEventListener('DOMContentLoaded', function () {
       icon.classList.toggle('active')
       if (icon.classList.contains('active')) {
         icon.style.fill = 'red'
-        icon.style. stroke="none"
+        icon.style.stroke = "none"
       } else {
         icon.style.fill = 'none'
       }
