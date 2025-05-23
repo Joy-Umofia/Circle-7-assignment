@@ -251,6 +251,31 @@ footer {
   cursor: pointer;
 }
 
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#preview-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+}
+
+#preview-title {
+  font-family: "poppins";
+  font-size: 18px;
+}
+
 @media (min-width: 768px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
