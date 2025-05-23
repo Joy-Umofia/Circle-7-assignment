@@ -154,6 +154,7 @@ window.addEventListener('DOMContentLoaded', function () {
     .join('')
 
   galleryContainer.innerHTML = gallery
+
   // making the heart icon clickable and changing its color when clicked
   // selecting the heart icon class
   const heartIcon = document.getElementsByClassName('heart-icon')
@@ -163,6 +164,7 @@ window.addEventListener('DOMContentLoaded', function () {
       icon.classList.toggle('active')
       if (icon.classList.contains('active')) {
         icon.style.fill = 'red'
+        icon.style. stroke="none"
       } else {
         icon.style.fill = 'none'
       }
