@@ -1,163 +1,188 @@
 // importing from gallery.js
-import { galleryData } from './gallery.js'
+import { galleryData } from "./gallery.js";
 
 //Edit profile functionality
-const editBtn = document.querySelector('.edit-icon')
-const modal = document.getElementById('editModal')
-const closeBtn = document.getElementById('closeModal')
-const newPostModal = document.getElementById('new-post-modal')
-const newPostBtn = document.getElementById('new-post-btn')
-const newPostForm = document.getElementById('new-post-form')
-const galleryContainer = document.querySelector('.gallery')
-const closeNewPostBtn = document.getElementById('close-new-post')
-const submitNewPostBtn = document.getElementById('submit-new-post-btn')
+const editBtn = document.querySelector(".edit-icon");
+const modal = document.getElementById("editModal");
+const closeBtn = document.getElementById("closeModal");
+const newPostModal = document.getElementById("new-post-modal");
+const newPostBtn = document.getElementById("new-post-btn");
+const newPostForm = document.getElementById("new-post-form");
+const galleryContainer = document.querySelector(".gallery");
+const closeNewPostBtn = document.getElementById("close-new-post");
+const submitNewPostBtn = document.getElementById("submit-new-post-btn");
 
 //display modal when edit icon is clicked
-editBtn.addEventListener('click', () => {
-  modal.style.display = 'flex'
-  editForm.reset()
-})
+editBtn.addEventListener("click", () => {
+  modal.style.display = "flex";
+  editForm.reset();
+});
 
 //remove modal from display when the close button is clicked
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none'
-  editForm.reset()
-})
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  editForm.reset();
+});
 
 //if a click happens anywhere on the modal's background while it;s in display, close the modal
-window.addEventListener('click', (e) => {
-  if (e.target == modal) modal.style.display = 'none'
-})
+window.addEventListener("click", (e) => {
+  if (e.target == modal) modal.style.display = "none";
+});
 
-const editForm = document.querySelector('#editForm')
-const heading = document.querySelector('.heading-text')
-const bio = document.querySelector('.profile-parag')
-const profileImg = document.querySelector('.profile-img')
+const editForm = document.querySelector("#editForm");
+const heading = document.querySelector(".heading-text");
+const bio = document.querySelector(".profile-parag");
+const profileImg = document.querySelector(".profile-img");
 
 //handle submit even on form and update profile
-editForm.addEventListener('submit', (e) => {
-  e.preventDefault()
+editForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  const newName = document.getElementById('username').value.trim()
-  const newBio = document.getElementById('bio').value.trim()
-  const imageFile = document.getElementById('profileImage').files[0]
+  const newName = document.getElementById("username").value.trim();
+  const newBio = document.getElementById("bio").value.trim();
+  const imageFile = document.getElementById("profileImage").files[0];
 
   // Only update the name if a new one was provided
   if (newName) {
-    heading.textContent = newName
+    heading.textContent = newName;
   }
 
   // Only update the bio if a new one was provided
   if (newBio) {
-    bio.textContent = newBio
+    bio.textContent = newBio;
   }
 
   // Only update the profile image if a new file was selected
   if (imageFile) {
-    const reader = new FileReader()
+    const reader = new FileReader();
     reader.onload = function (e) {
-      profileImg.src = e.target.result
-    }
-    reader.readAsDataURL(imageFile)
+      profileImg.src = e.target.result;
+    };
+    reader.readAsDataURL(imageFile);
 
-    imageFile.style.borderRadius = '18px'
+    imageFile.style.borderRadius = "18px";
   }
 
   // Close the modal
-  modal.style.display = 'none'
-})
+  modal.style.display = "none";
+});
 
 //display new post modal when new post button is clicked
-newPostBtn.addEventListener('click', (e) => {
-  e.preventDefault()
-  newPostForm.reset()
-  newPostModal.style.display = 'flex'
-})
+newPostBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  newPostForm.reset();
+  newPostModal.style.display = "flex";
+});
 
 //remove new post modal from display when the close button is clicked
 
-closeNewPostBtn.addEventListener('click', (e) => {
-  e.preventDefault()
-  newPostForm.reset()
-  newPostModal.style.display = 'none'
-})
+closeNewPostBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  newPostForm.reset();
+  newPostModal.style.display = "none";
+});
 
 //if a click happens anywhere on the modal's background while it is in display, close the modal
-window.addEventListener('click', (e) => {
-  if (e.target == newPostModal) newPostModal.style.display = 'none'
-})
+window.addEventListener("click", (e) => {
+  if (e.target == newPostModal) newPostModal.style.display = "none";
+});
 
 //handle submit event on new post form and add new post to gallery
 
-newPostForm.addEventListener('submit', (e) => {
-  e.preventDefault()
+newPostForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  const newPostCaption = document.getElementById('postCaption').value.trim()
-  const newPostImage = document.getElementById('postImage').files[0]
+  const newPostCaption = document.getElementById("postCaption").value.trim();
+  const newPostImage = document.getElementById("postImage").files[0];
 
-  if (newPostCaption === '') {
-    alert('Please enter a caption for your post.')
-    submitNewPostBtn.ariaDisabled = true
-    submitNewPostBtn.style.cursor = 'not-allowed'
-    return
+  if (newPostCaption === "") {
+    alert("Please enter a caption for your post.");
+    submitNewPostBtn.ariaDisabled = true;
+    submitNewPostBtn.style.cursor = "not-allowed";
+    return;
   }
 
   // Only update the post if a new one was provided
   if (newPostCaption && newPostImage) {
-    const reader = new FileReader()
+    const reader = new FileReader();
     reader.onload = function (e) {
-      const newPostHTML = `
-        <div class="gallery-item">
-          <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
+      // const newPostHTML = `
+      //   <div class="gallery-item">
+      //     <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
+      //     <div class="gallery-caption">
+      //       <span>${newPostCaption}</span>
+      //       <svg class="heart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      //       <path
+      //         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+      //       </path>
+      //     </svg>
+      //     </div>
+      //   </div>
+      // `
+      // galleryContainer.innerHTML += newPostHTML
+
+      const galleryItem = document.createElement("div");
+      galleryItem.classList.add("gallery-item");
+      galleryItem.innerHTML = `
+        <img src="${e.target.result}" alt="${newPostCaption}" class="gallery-image" />
           <div class="gallery-caption">
             <span>${newPostCaption}</span>
             <svg class="heart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-            </path>
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
-          </div>
         </div>
-      `
-      galleryContainer.innerHTML += newPostHTML
-    }
+`;
 
-    reader.readAsDataURL(newPostImage)
+      galleryContainer.appendChild(galleryItem);
+
+      const heartIcon = galleryItem.querySelector(".heart-icon");
+      heartIcon.addEventListener("click", () => {
+        heartIcon.classList.toggle("active");
+        heartIcon.style.fill = heartIcon.classList.contains("active")
+          ? "red"
+          : "none";
+        heartIcon.style.stroke = heartIcon.classList.contains("active")
+          ? "none"
+          : "";
+      });
+    };
+
+    reader.readAsDataURL(newPostImage);
   }
   // Close the modal
-  newPostModal.style.display = 'none'
-})
+  newPostModal.style.display = "none";
+});
 
 // Code to close modal when the Escape key is pressed
 
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape' || event.key === 27) {
-    modal.style.display = 'none'
-    newPostModal.style.display = 'none'
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" || event.key === 27) {
+    modal.style.display = "none";
+    newPostModal.style.display = "none";
   }
-})
+});
 
 // dynamically displaying each gallery in the browser. the moment the window loads it shows our images
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener("DOMContentLoaded", function () {
   let gallery = galleryData
     .map((item) => {
       // destructured each item
-      const { img, title, icon } = item
+      const { img, title, icon } = item;
       return `<div class="gallery-item">
         <img src=${img} alt=${title} class="gallery-image" />
         <div class="gallery-caption">
           <span>${title}</span>
           ${icon}
         </div>
-      </div> `
+      </div> `;
     })
-    .join('')
+    .join("");
 
-  galleryContainer.innerHTML = gallery
+  galleryContainer.innerHTML = gallery;
 
   // making the heart icon clickable and changing its color when clicked
   // selecting the heart icon class
-  const heartIcon = document.getElementsByClassName('heart-icon')
+  const heartIcon = document.getElementsByClassName("heart-icon");
   // I'm looping through each heart icon abd adding an event listener to it
   Array.from(heartIcon).forEach((icon) => {
     icon.addEventListener('click', () => {
@@ -166,3 +191,53 @@ window.addEventListener('DOMContentLoaded', function () {
     })
   })
 })
+
+    
+// Preview Modal functionality
+const previewModal = document.getElementById("preview-modal");
+const previewImage = document.getElementById("preview-image");
+const previewTitle = document.getElementById("preview-title");
+const previewCloseBtn = previewModal.querySelector(".close");
+
+// Function to open preview modal
+function openPreviewModal(src, title) {
+  previewImage.src = src;
+  previewTitle.textContent = title;
+  previewModal.style.display = "flex";
+}
+
+// Function to close preview modal
+function closePreviewModal() {
+  previewModal.style.display = "none";
+  previewImage.src = "";
+  previewTitle.textContent = "";
+}
+
+// Add event listener to open preview modal
+galleryContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("gallery-image")) {
+    const imgSrc = e.target.getAttribute("src");
+    const imgTitle = e.target
+      .closest(".gallery-item")
+      .querySelector("span").textContent;
+    openPreviewModal(imgSrc, imgTitle);
+  }
+});
+
+// Close button event listener
+previewCloseBtn.addEventListener("click", closePreviewModal);
+
+// Close by clicking outside modal content
+previewModal.addEventListener("click", function (e) {
+  if (e.target === previewModal) {
+    closePreviewModal();
+  }
+});
+
+// Close by pressing Escape key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closePreviewModal();
+  }
+});
+>>>>>>> 86903612e961e3f6808d7486184e8cb27c877c78
