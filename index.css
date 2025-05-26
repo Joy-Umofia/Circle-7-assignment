@@ -169,7 +169,7 @@ main {
 
 .heart-icon.active:hover {
   fill: red;
-  stroke: red; /* Prevent hover from overriding red */
+  stroke: red; 
 }
 
 footer {
