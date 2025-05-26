@@ -162,12 +162,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Array.from(heartIcon).forEach((icon) => {
     icon.addEventListener('click', () => {
       icon.classList.toggle('active')
-      if (icon.classList.contains('active')) {
-        icon.style.fill = 'red'
-        icon.style. stroke="none"
-      } else {
-        icon.style.fill = 'none'
-      }
+      
     })
   })
 })
